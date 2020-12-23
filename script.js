@@ -19,8 +19,8 @@ async function handleDisconnectClick() {
 }
 
 async function openDevice() {
-    const vendorId = 0x27b8; // blink1 vid
-    const productId = 0x01ed;  // blink1 pid
+    const vendorId = 457; // blink1 vid
+    const productId = 1905;  // blink1 pid
 
     const device_list = await navigator.hid.getDevices();
 
