@@ -29,7 +29,7 @@ async function openDevice() {
   },
   {
     vendorId: 0x0000, // Nintendo Co., Ltd
-    productId: 0x0000 // Joy-Con Right
+    productId: 0x00 // Joy-Con Right
   }
 ];
     
