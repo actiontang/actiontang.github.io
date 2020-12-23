@@ -21,16 +21,27 @@ async function handleDisconnectClick() {
 async function openDevice() {
     const vendorId = 0x0457; // blink1 vid
     const productId = 0x1905;  // blink1 pid
+    
+    const filters = [
+  {
+    vendorId: 0x0457, // Nintendo Co., Ltd
+    productId: 0x1905 // Joy-Con Left
+  },
+  {
+    vendorId: 0x0000, // Nintendo Co., Ltd
+    productId: 0x0000 // Joy-Con Right
+  }
+];
+    
 
     const device_list = await navigator.hid.getDevices();
 
-    let device = device_list.find(d => d.vendorId === vendorId && d.productId === productId);
+    let device = device_list.find({ filters });
 
-    if (!device) {
+    if (1) 
+    {
         // this returns an array now
-        let devices = await navigator.hid.requestDevice({
-            filters: [{ vendorId, productId }],
-        });
+        let devices = await navigator.hid.requestDevice({ filters } );
         console.log("devices:",devices);
         device = devices[0];
         if( !device ) return null;
